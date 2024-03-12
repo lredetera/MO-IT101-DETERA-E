@@ -36,13 +36,8 @@ public class MotorPh {
         double phoneAllowance = 2000;
         double clothingAllowance = 1000;
 
-        // Compute regular and overtime earnings
-        double regularHours = Math.min(totalHoursWorked, 40); // Limit regular hours to 40
-        double overtimeHours = Math.max(totalHoursWorked - regularHours, 0); // Calculate overtime hours
-        double regularSalary = regularHours * hourlyRate;
-        double overtimeRate = hourlyRate * 1.5; // Overtime rate is 1.5 times regular rate
-        double overtimeSalary = Math.min(overtimeHours, 10) * overtimeRate; // Limit overtime to 10 hours per week
-        double grossWeeklySalary = regularSalary + overtimeSalary;
+        // Compute earnings
+        double grossWeeklySalary = totalHoursWorked * hourlyRate;
         double netWeeklySalary = grossWeeklySalary; // For now, assuming no deductions
 
         // Compute allowances
@@ -65,13 +60,8 @@ public class MotorPh {
 
         // Output
         System.out.println("\nEARNINGS");
-        System.out.println("Total Hours Worked: " + df.format(totalHoursWorked));
-        System.out.println("Regular Hours Worked: " + df.format(regularHours));
-        System.out.println("Regular Hourly Rate: " + df.format(hourlyRate));
-        System.out.println("Regular Salary: " + df.format(regularSalary));
-        System.out.println("Overtime Hours Worked: " + df.format(overtimeHours));
-        System.out.println("Overtime Hourly Rate: " + df.format(overtimeRate));
-        System.out.println("Overtime Salary: " + df.format(overtimeSalary));
+        System.out.println("Total Hours Worked: " + totalHoursWorked);
+        System.out.println("Hourly Rate: " + df.format(hourlyRate));
         System.out.println("Gross Weekly Salary: " + df.format(grossWeeklySalary));
         System.out.println("Net Weekly Salary: " + df.format(netWeeklySalary));
 
